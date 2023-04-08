@@ -23,10 +23,12 @@ function onInputData() {
 
  function onFormSubmit(evt) {
     evt.preventDefault();
-    console.log({ email: email.value, message: message.value });
-    if (email.value === '' || message.value === '') {
+    
+    if (email.value.trim() === '' || message.value.trim() === '') {
         return alert('Будь ласка, заповніть усі поля!')
     }
+    console.log({ email: email.value.trim(), message: message.value.trim() });
+
     localStorage.removeItem(LOCAL_KEY);
     evt.currentTarget.reset();
     dataForm = {};
